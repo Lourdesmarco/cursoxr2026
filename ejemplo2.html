@@ -12,10 +12,14 @@
   <a-scene physics="debug: true">
       <a-assets>
         <img id="azulejo1" src="assets/textura.jpeg" alt="textura azulejos grises">
+        <img id="fondo" src="assets/panorama2.jpg" alt="textura azulejos grises">
       </a-assets>
 
     <!-- Camera -->
-      <!-- <a-entity camera look-controls position="0 1.6 -6"></a-entity> -->
+     <a-entity position="0 1.6 -6" rotation="0 180 0">
+        <a-entity camera look-controls ></a-entity>
+     </a-entity>
+      
       
       
       <a-box position="-1.368 0.972 -3.536" scale="0.090 2.000 2.430" rotation="0 0 0" color="#4CC3D9"></a-box>
@@ -28,7 +32,7 @@
       <a-box position="-0.923 0.972 -4.707" scale="0.090 2.000 0.940" rotation="0 90 0" color="#4CC3D9"></a-box>
       
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" src="#azulejo1"></a-plane>
-      <a-sky color="#ECECEC"></a-sky>
+      <a-sky src="#fondo"></a-sky>
     </a-scene>
 </body>
 </html>
