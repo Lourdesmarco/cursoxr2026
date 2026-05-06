@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
+
   <title>Aframe · Ejemplo 2 · Casa con texturas</title>
 </head>
 <body>
-  <a-scene>
+  <a-scene physics="debug: true">
       <a-assets>
         <img id="azulejo1" src="assets/textura.jpeg" alt="textura azulejos grises">
       </a-assets>
+
+<!-- Camera -->
+  <a-entity camera look-controls position="0 1.6 -6"></a-entity>
+      
       <a-box position="-1.368 0.5 -3.536" scale="0.090 1.110 2.430" rotation="0 0 0" color="#4CC3D9"></a-box>
       <a-box position="1.168 0.5 -3.536" scale="0.090 1.110 2.430" rotation="0 0 0" color="#4CC3D9"></a-box>
       <a-box position="-0.098 0.5 -2.282" scale="0.090 1.110 2.630" rotation="0 90 0" color="#4CC3D9"></a-box>
