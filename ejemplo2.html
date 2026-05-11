@@ -15,23 +15,7 @@
         <img id="azulejo1" src="assets/textura.jpeg" alt="textura azulejos grises">
         <img id="fondo" src="assets/panorama2.jpg" alt="textura azulejos grises">
       </a-assets>
-
-    <!-- Camera -->
-      <!-- <a-entity position="0 1.6 -7" rotation="0 180 0">
-          <a-entity camera look-controls ></a-entity>
-      </a-entity> -->
-      
-      <!-- <a-entity hand-controls="hand: left"></a-entity>
-      <a-entity hand-controls="hand: right"></a-entity> -->
-       <a-entity
-        laser-controls="hand: left"
-        raycaster="objects: .clickable">
-      </a-entity>
-
-      <a-entity
-        laser-controls="hand: right"
-        raycaster="objects: .clickable">
-      </a-entity>
+     
       
       <a-box class="clickable" position="-1.368 0.972 -3.536" scale="0.090 2.000 2.430" rotation="0 0 0" color="#4CC3D9"></a-box>
       <a-box class="clickable" position="1.168 0.972 -3.536" scale="0.090 2.000 2.430" rotation="0 0 0" color="#4CC3D9"></a-box>
@@ -45,10 +29,21 @@
       <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="4" height="4" src="#azulejo1"></a-plane>
       <a-sky src="#fondo"></a-sky>
       
-        <a-camera position="0 1.6 0"                  
-                  wasd-controls="fly: true" 
-                  look-controls>
+      <a-entity position="0 0 0" >
+        <a-camera                  
+            wasd-controls="fly: true" 
+            look-controls>
         </a-camera>
+          <a-entity
+            oculus-touch-controls="hand: left"
+            raycaster="objects: .clickable">
+          </a-entity>
+
+          <a-entity
+            oculus-touch-controls="hand: right"
+            raycaster="objects: .clickable">
+          </a-entity>
+      </a-entity>
      
     </a-scene>
 </body>
