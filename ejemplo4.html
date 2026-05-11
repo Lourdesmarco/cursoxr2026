@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <title>Aframe · Ejemplo 4 · Sistema solar</title>
+</head>
+<body>
+  <a-scene>
+      <a-assets>
+        <img id="sol" src="assets/sol.jpg" alt="textura sol">
+      </a-assets>
+      
+      <a-sphere position="0 0 -9" radius="1.25" src="#sol">
+        <a-sphere id="mercurio" color="#CCC" radius="0.035" position="0 1 5"></a-sphere>
+        <a-sphere id="venus" color="#F5EB27" radius="0.087" position="0 1 6"></a-sphere> 
+        <a-sphere id="tierra" color="#6776e1" radius="0.092" position="0 1 7"></a-sphere>  
+        <a-sphere id="marte" color="#d2293e" radius="0.092" position="0 1 8"></a-sphere>  
+      </a-sphere>
+      
+      
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+</body>
+</html>

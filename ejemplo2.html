@@ -7,7 +7,7 @@
   <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.7.0/dist/aframe-extras.min.js"></script>
 
-  <title>Aframe · Ejemplo 2 · Casa con texturas</title>
+  <title>Aframe · Ejemplo 2 · Casa pequeña de pruebas</title>
 </head>
 <body>
   <a-scene physics="debug: true">
@@ -16,28 +16,33 @@
         <img id="fondo" src="assets/panorama2.jpg" alt="textura azulejos grises">
       </a-assets>
      
-      
+      <!-- Paredes -->
       <a-box class="clickable" position="-1.368 0.972 -3.536" scale="0.090 2.000 2.430" rotation="0 0 0" color="#4CC3D9"></a-box>
       <a-box class="clickable" position="1.168 0.972 -3.536" scale="0.090 2.000 2.430" rotation="0 0 0" color="#4CC3D9"></a-box>
       <a-box class="clickable" position="-0.098 0.972 -2.282" scale="0.090 2.000 2.630" rotation="0 90 0" color="#4CC3D9"></a-box>
-      <!-- PUERTA -->
+      <!-- Puerta -->
       <a-box dynamic-body position="-0.098 0.900 -4.707" scale="0.090 1.800 0.680" rotation="0 90 0" color="#aa7942"></a-box>
-      
+      <!-- Más paredes -->
       <a-box class="clickable" position="0.723 0.972 -4.707" scale="0.090 2.000 0.940" rotation="0 90 0" color="#4CC3D9"></a-box>
       <a-box class="clickable" position="-0.923 0.972 -4.707" scale="0.090 2.000 0.940" rotation="0 90 0" color="#4CC3D9"></a-box>
       
+      <!-- Suelo -->
       <a-plane static-body position="0 0 -4" rotation="-90 0 0" width="4" height="4" src="#azulejo1"></a-plane>
+      <!-- Panorámica bosque -->
       <a-sky src="#fondo"></a-sky>
       
+      <!-- Entidad genérica para posicionar la cámara -->
       <a-entity movement-controls="fly: true" position="0 0 0" >
+        <!-- Cámara -->
         <a-camera                  
             wasd-controls="fly: true" 
             look-controls>
         </a-camera>
+        <!-- controles mano izquierda -->
         <a-entity
           oculus-touch-controls="hand: left">
         </a-entity>
-
+        <!-- controles mano derecha -->
         <a-entity
           oculus-touch-controls="hand: right">
         </a-entity>
