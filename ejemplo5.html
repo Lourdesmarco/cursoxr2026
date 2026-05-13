@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <title>Aframe · Ejemplo 5 · Objeto 3D externo</title>
+</head>
+<body>
+    <a-scene>
+        <a-assets>
+            <a-asset-item id="xbot" src="assets/3D/train_1.glb"></a-asset-item>
+        </a-assets>
+        <a-entity gltf-model="#xbot" position="0 0 -9" animation-mixer></a-entity>
+    </a-scene>
+</body>
+</html>
