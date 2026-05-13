@@ -4,23 +4,201 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <script src="https://unpkg.com/aframe-look-at-component@1.0.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="assets/js/camera-focus.js"></script>
   <title>Aframe · Ejemplo 4 · Sistema solar</title>
 </head>
 <body>
-  <a-scene>
+  <a-scene cursor="rayOrigin: mouse">
       <a-assets>
-        <img id="sol" src="assets/sol.jpg" alt="textura sol">
+        <img id="sol" src="assets/images/sol.jpg" alt="textura sol">
+        <img id="mercurioT" src="assets/images/mercurio.jpg" alt="textura mercurio">
+        <img id="venusT" src="assets/images/venus.webp" alt="textura venus">
+        <img id="tierraT" src="assets/images/tierra.png" alt="textura tierra">
+        <img id="marteT" src="assets/images/marte.avif" alt="textura marte">
+        <img id="jupiterT" src="assets/images/jupiter.jpg" alt="textura jupiter">
+        <img id="saturnoT" src="assets/images/saturno.jpg" alt="textura saturno">
+        <img id="uranoT" src="assets/images/urano.png" alt="textura urano">
+        <img id="neptunoT" src="assets/images/neptuno.jpeg" alt="textura neptuno">
       </a-assets>
       
-      <a-sphere position="0 0 -9" radius="1.25" src="#sol">
-        <a-sphere id="mercurio" color="#CCC" radius="0.035" position="0 1 5"></a-sphere>
-        <a-sphere id="venus" color="#F5EB27" radius="0.087" position="0 1 6"></a-sphere> 
-        <a-sphere id="tierra" color="#6776e1" radius="0.092" position="0 1 7"></a-sphere>  
-        <a-sphere id="marte" color="#d2293e" radius="0.092" position="0 1 8"></a-sphere>  
+      <a-sphere position="0 2 -10" radius="1" src="#sol" camera-focus>
+        <a-text
+            value="Sol"
+            color="white"
+            position="0 1.5 0"
+            align="center">
+          </a-text>
+
+        <!-- mercurio -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 2400; easing: linear" camera-focus>
+          <a-text
+            value="Mercurio"
+            color="white"
+            position="0 0.5 4"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="mercurio" 
+            color="#CCC" 
+            radius="0.05" 
+            position="0 0 4"
+            src="#mercurioT"
+          ></a-sphere>
+        </a-entity>
+        
+        <!-- venus -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 6200; easing: linear" camera-focus>
+          <a-text
+            value="Venus"
+            color="white"
+            position="0 0.5 6"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="venus" 
+            radius="0.08" 
+            position="0 0 6"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear" 
+            src="#venusT">
+          </a-sphere> 
+        </a-entity>
+
+        <!-- tierra -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000; easing: linear" camera-focus>
+          <a-text
+            value="Tierra"
+            color="white"
+            position="0 0.5 8"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="tierra" 
+            radius="0.09" 
+            position="0 0 8"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear" 
+            src="#tierraT">
+          </a-sphere>  
+        </a-entity>
+        
+        <!-- marte -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 18800; easing: linear" camera-focus>
+          <a-text
+            value="Marte"
+            color="white"
+            position="0 0.5 10"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="marte" 
+            radius="0.06" 
+            position="0 0 10"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear" 
+            src="#marteT">
+          </a-sphere>  
+        </a-entity>
+        
+        <!-- júpiter -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 118000; easing: linear" camera-focus>
+          <a-text
+            value="Jupiter"
+            color="white"
+            position="0 0.5 15"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="jupiter" 
+            radius="0.25" 
+            position="0 0 15"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear" 
+            src="#jupiterT">
+          </a-sphere>  
+        </a-entity>
+
+        <!-- saturno -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 294000; easing: linear" camera-focus>
+          <a-text
+            value="Saturno"
+            color="white"
+            position="0 0.5 20"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="saturno" 
+            radius="0.08" 
+            position="0 0 20"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 840000; easing: linear" 
+            src="#saturnoT">
+          </a-sphere>  
+        </a-entity>
+
+        <!-- urano -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 840000; easing: linear" camera-focus>
+          <a-text
+            value="Urano"
+            color="white"
+            position="0 0.5 24"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="urano" 
+            radius="0.04" 
+            position="0 0 24"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear" 
+            src="#uranoT">
+          </a-sphere>  
+        </a-entity>
+
+
+        <!-- neptuno -->
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 1650000; easing: linear" camera-focus>
+          <a-text
+            value="Neptuno"
+            color="white"
+            position="0 0.5 28"
+            align="center"
+            look-at="#camera">
+          </a-text>
+          <a-sphere 
+            id="neptuno" 
+            radius="0.04" 
+            position="0 0 28"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 8000; easing: linear" 
+            src="#neptunoT">
+          </a-sphere>  
+        </a-entity>
+
       </a-sphere>
       
+      <a-sky color="#000"></a-sky>
       
-      <a-sky color="#ECECEC"></a-sky>
+
+      <!-- Entidad genérica para posicionar la cámara -->
+      <a-entity movement-controls="fly: true" position="0 0 0" id="rig">
+        <!-- Cámara -->
+        <a-camera
+          id="camera"                  
+          wasd-controls="fly: true" 
+          look-controls>
+          
+        </a-camera>
+        <!-- controles mano izquierda -->
+        <a-entity
+          oculus-touch-controls="hand: left">
+        </a-entity>
+        <!-- controles mano derecha -->
+        <a-entity
+          oculus-touch-controls="hand: right">
+        </a-entity>
+      </a-entity> 
+
     </a-scene>
 </body>
 </html>
