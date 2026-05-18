@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+    <title>Aframe · Ejemplo 6 · Eventos con el ratón</title>
+  </head>
+  <body>
+    <a-scene>
+      
+      <a-sphere position="0 1.25 -5" radius="1" color="#EF2D5E"
+        animation="startEvents: click; property: position; to: 3 1.25 -5;
+                   dir: alternate; loop: true">
+        <a-box position="0 1.5 0" rotation="0 0 0" color="#4CC3D9"
+        animation="startEvents: click; property: rotation; to: 0 360 0; dur: 2000;
+                   easing: linear; loop: true; dir: normal; easing: linear;">
+        </a-box>
+      </a-sphere>
+
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"
+        animation="startEvents: click; property: position; to: 1 1.75 -3; dur: 500;
+        loop: 1; dir: alternate; easing: easeOutBack;"
+        light="type: ambient; intensity: 1.5; color: #BBB" 
+        animation__dos="startEvents: click; property: light.intensity; to: 0; dur: 1000;">
+      </a-cylinder>
+    
+   
+      
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+
+      <a-entity position="-1 2 0"
+            light="type: directional; 
+            intensity: 0.6; 
+            color: #FFF" 
+            id="luz"></a-entity>
+  
+      <a-entity position="0 0 0">
+        <a-entity camera position="0 1.6 0" look-controls wasd-controls></a-entity>
+        <a-entity cursor="rayOrigin:mouse"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
+
