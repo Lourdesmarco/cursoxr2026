@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <title>Aframe · Ejemplo 8 · Manos con interacción</title>
+</head>
+<body>
+
+
+<a-scene xr-mode-ui="XRMode: xr" > 
+     
+
+      <a-sphere grabbable position="-0.1 0.8 -0.3" radius="0.05" color="#EF2D5E"></a-sphere>
+      <a-sphere grabbable position="0 0.8 -0.3" radius="0.05" color="#EF2D5E"></a-sphere>
+      <a-sphere grabbable position="0.1 0.8 -0.3" radius="0.05" color="#EF2D5E"></a-sphere>
+      
+
+      
+
+      <a-entity>
+        <a-entity camera look-controls wasd-controls position="0 1.6 0"></a-entity>
+        <a-entity id="leftHand" hand-tracking-grab-controls="hand: left;"></a-entity>
+        <a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>  
+      </a-entity>
+
+    </a-scene>
+
+
+</body>
+</html>
