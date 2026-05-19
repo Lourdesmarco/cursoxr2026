@@ -1,0 +1,40 @@
+*{
+    font-family: sans-serif;
+}
+body, html{
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+h1{
+    text-align: center;
+    color: tomato;
+}
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+
+main a {
+    display: block;
+    padding: 2rem;
+    text-align: center;
+    text-decoration: none;
+    color: tomato;
+    border: 2px solid rgb(248, 191, 181);
+    min-width: 200px;
+    border-radius: 1rem;
+    margin: .5rem;
+}
+
+main a:hover{
+    border-color: tomato;
+    background-color: rgb(250, 228, 224);
+}
+
+main a svg{
+    width: 50px;
+    margin-bottom: 1rem;
+}
