@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+  <title>Aframe · Ejemplo 16 · Video en plano</title>
+</head>
+<body>
+  <a-scene>
+      <a-assets>
+        <video id="videoP" src="assets/videos/prueba.webm" autoplay loop></video>
+      </a-assets>
+      
+      <a-video src="#videoP" width="4" height="2" position="0 1.6 -2"></a-video>
+
+    </a-scene>
+</body>
+</html>
