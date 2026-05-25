@@ -9,20 +9,130 @@
 </head>
 <body>
 
-  <a-scene xr-mode-ui="XRMode: xr" > 
-    
+  <a-scene xr-mode-ui="XRMode: xr">
     <!-- en esta demo hay que conseguir que el usuario aprenda las emociones sin audio -->
     <a-assets>
-        <img id="gif" src="assets/images/prueba.gif" alt="prueba">
-        <video id="videoP" src="assets/videos/prueba.webm" autoplay loop></video>
-      </a-assets>
+      <img id="gif" src="assets/images/prueba.gif" alt="prueba">        
+      <video id="videoP" src="assets/videos/people.mp4" autoplay loop></video>
+    </a-assets>
 
-    <a-sphere grabbable position="-0.2 0.8 -0.3" radius="0.05" color="#EF2D5E"></a-sphere>
-    <a-sphere grabbable position="0 0.8 -0.3" radius="0.05" color="yellow"></a-sphere>
-    <a-sphere grabbable position="0.2 0.8 -0.3" radius="0.05" color="blue"></a-sphere>
+    <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9">
+      <a-cylinder
+        class="buton" 
+        id="generador" 
+        position="0 0.5 0" 
+        radius="0.5" 
+        height="1.5" 
+        color="gray" 
+        scale="0.3 0.1 0.3"
+        animation__down="
+           property: position;
+           to: 0 0.45 0;
+           dur: 100;
+           startEvents: pressdown;
+         "
+        animation__up="
+           property: position;
+           to: 0 0.5 0;
+           dur: 100;
+           startEvents: pressup;
+         ">
+      </a-cylinder>
+      <a-text
+        value="Generador \nde \nrecuerdos"
+        scale="0.7 0.7 0.7"
+        position="-0.1 0.1 0.7"
+        align="center"
+        color="white">
+      </a-text>
+    </a-box>
+
+
+    <a-sphere grabbable position="-0.2 0.8 -0.3" radius="0.05" color="#EF2D5E" src="#videoP" data-memory="Rabia">
+      <a-cylinder
+        class="buton" 
+        id="buton1" 
+        position="0 0.045 0" 
+        radius="0.5" 
+        height="1.5" 
+        color="gray" 
+        scale="0.052 0.015 0.052"
+        animation__down="
+           property: position;
+           to: 0 0.036 0;
+           dur: 100;
+           startEvents: pressdown;
+         "
+        animation__up="
+           property: position;
+           to: 0 0.045 0;
+           dur: 100;
+           startEvents: pressup;
+         ">
+      </a-cylinder>
+    </a-sphere>
+    <a-sphere grabbable position="0 0.8 -0.3" radius="0.05" color="yellow" src="#videoP" data-memory="Alegria">
+      <a-cylinder
+        class="buton" 
+        id="buton2" 
+        position="0 0.045 0" 
+        radius="0.5" 
+        height="1.5" 
+        color="gray" 
+        scale="0.052 0.015 0.052"
+        animation__down="
+           property: position;
+           to: 0 0.036 0;
+           dur: 100;
+           startEvents: pressdown;
+         "
+        animation__up="
+           property: position;
+           to: 0 0.045 0;
+           dur: 100;
+           startEvents: pressup;
+         ">
+      </a-cylinder>
+    </a-sphere>
+    <a-sphere grabbable position="0.2 0.8 -0.3" radius="0.05" color="blue" src="#videoP" data-memory="Tristeza">
+      <a-cylinder 
+        class="buton"
+        id="buton3" 
+        position="0 0.045 0" 
+        radius="0.5" 
+        height="1.5" 
+        color="gray" 
+        scale="0.052 0.015 0.052"
+        animation__down="
+           property: position;
+           to: 0 0.036 0;
+           dur: 100;
+           startEvents: pressdown;
+         "
+        animation__up="
+           property: position;
+           to: 0 0.045 0;
+           dur: 100;
+           startEvents: pressup;
+         ">
+      </a-cylinder>
+    </a-sphere>
       
+    <a-videosphere id="pantalla"></a-videosphere>
+
+    <a-text
+      id="memoryDesc"
+      value=""
+      position="0 1.6 -2"
+      color="white"
+      align="center"
+      width="4"
+      look-at="#camera">
+    </a-text>
+
     <a-entity>
-      <a-entity camera look-controls wasd-controls position="0 1.6 1"></a-entity>
+      <a-entity id="camera" camera look-controls wasd-controls position="0 1.6 1"></a-entity>
+      <a-entity cursor="rayOrigin:mouse"></a-entity>
       <a-entity id="leftHand" hand-tracking-grab-controls="hand: left;"></a-entity>
       <a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>  
     </a-entity>
@@ -31,3 +141,75 @@
 
 </body>
 </html>
+
+
+<script>
+  const butons = document.querySelectorAll('.buton');
+  const pantalla = document.querySelector('#pantalla');
+  const memoryTxt = document.querySelector('#memoryDesc');
+  const escena = document.querySelector('a-scene');
+
+  butons.forEach(el => {
+    el.addEventListener('click', function () {
+      el.emit('pressdown');
+      setTimeout(() => {
+        el.emit('pressup');
+      }, 100);
+
+      //si he pulsado el botón de generación de un nuevo recuerdo
+      if(el.getAttribute("id") == "generador"){
+        //preguntar qué tipo de recuerdo (rojo, amarillo, azul)
+        //ponerme en modo RA + ocultar recuerdos + grabar 10 secs
+
+        //crear la nueva bola
+        const elementoHTML = `
+        <a-sphere grabbable position="0.4 0.8 -0.3" radius="0.05" color="blue" src="#videoP" data-memory="Tristeza">
+          <a-cylinder 
+            class="buton"
+            id="buton4" 
+            position="0 0.045 0" 
+            radius="0.5" 
+            height="1.5" 
+            color="gray" 
+            scale="0.052 0.015 0.052"
+            animation__down="
+              property: position;
+              to: 0 0.036 0;
+              dur: 100;
+              startEvents: pressdown;
+            "
+            animation__up="
+              property: position;
+              to: 0 0.045 0;
+              dur: 100;
+              startEvents: pressup;
+            ">
+          </a-cylinder>
+        </a-sphere>
+        `;
+
+        escena.insertAdjacentHTML("beforeend", elementoHTML);
+
+     
+
+      }else{
+        //si he pulsado el botón de cualquier recuerdo
+        if(pantalla.getAttribute("src") == "" || pantalla.getAttribute("src") == null){
+          pantalla.setAttribute("src", "#videoP");
+          //document.querySelector("#videoP").play();
+          pantalla.setAttribute("color", this.parentNode.getAttribute("color"))
+          memoryTxt.setAttribute("value", this.parentNode.getAttribute("data-memory"))
+        }else{
+          pantalla.setAttribute("src", "");
+          //document.querySelector("#videoP").pause();
+          pantalla.setAttribute("color", "white")
+        }
+      }
+
+       
+    });
+  });
+
+
+</script>
+
